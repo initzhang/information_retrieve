@@ -25,6 +25,7 @@ void print_list(struct posting* p_ori)
     printf("\n");
 }
 
+// 随机创建一个指定长度的postings list
 struct posting* create(int length)
 {
     srand(time(NULL)+length);
@@ -49,22 +50,10 @@ struct posting* create(int length)
     return head;
 }
 
+// 将两个posting list 合并的函数，两个posting 都是按照gd降序排列的，合并后的list也一样
 struct posting* combine(struct posting* p1, struct posting* p2)
 {
     struct posting* result = (struct posting*)malloc(64);
-    /*
-    result->next = NULL;
-    if(p1->gd > p2->gd)
-    {
-        result->gd = p1->gd;
-        result->docid = p1->docid;
-    }
-    else
-    {
-        result->gd = p1->gd;
-        result->docid = p1->docid;
-    }
-    */
     struct posting* prev = result;
     while(p1 && p2)
     {
@@ -84,6 +73,7 @@ struct posting* combine(struct posting* p1, struct posting* p2)
         }
         prev = prev->next;
     }
+    // 可能还有部分剩余的尾部，append
     while(p1)
     {
         prev->next = p1;
@@ -101,13 +91,13 @@ struct posting* combine(struct posting* p1, struct posting* p2)
         prev = prev->next;
     }
 
-
     return result->next;
 }
 
 
 int main()
 {
+    // 随机生成两个posting list
     struct posting* p1 = create(5);
     struct posting* p2 = create(4);
 
