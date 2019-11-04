@@ -12,3 +12,31 @@
     * 如果没有关键词，那么跳过这个句子  
     * 如果有关键词，那么判断关键词的前后是否是连续关键词，并且添加相应的html标签的前后缀即可
     
+## 样例输入输出
+输入：  
+* `query` : `information retrieve`  
+* `doc_text` : `There are tons of information for us to retrieve on Internet.We can search Internet for answers.Especially when we can not tackle the problem independently.So it is essential for us to master some skills about information retrieve likewise.Right?`  
+
+输出：
+```
+===========================
+all keywords are as follows:
+information
+retrieve
+
+
+===========================
+all input sentences are as follows:
+There are tons of information for us to retrieve on Internet
+We can search Internet for answers
+Especially when we can not tackle the problem independently
+So it is essential for us to master some skills about information retrieve likewise
+Right?
+
+
+===========================
+highlighted sentences are as follows:
+There are tons of <font color=#c60a00> information </font> for us to <font color=#c60a00> retrieve </font> on Internet.
+So it is essential for us to master some skills about <font color=#c60a00> information retrieve </font> likewise.
+
+```
