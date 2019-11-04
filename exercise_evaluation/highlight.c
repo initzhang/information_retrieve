@@ -2,13 +2,6 @@
 #include<stdlib.h>
 #include<string.h>
 
-/*
- *可能用上的函数：strtok、strstr，好像前一个好用一些！！
- * strcpy一下原串？如果需要保留其的话
- *
- * 先把keywords变成一个列表，然后遇到了就highlight？
- */
-
 // split函数
 void split(char *src,const char *separator,char **dest,int *num) 
 {
@@ -101,7 +94,6 @@ void highlight(char** sentences, int sentences_num, char** keywords, int keyword
                     left_is_key = 1;
                 }
             }
-
 
         }
 
